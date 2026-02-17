@@ -5,6 +5,7 @@ from tavily import TavilyClient
 from dotenv import load_dotenv
 import streamlit as st
 import os
+from deduplication import deduplication_node_function
 
 load_dotenv()
 
@@ -186,11 +187,14 @@ def build_workflow():
     workflow.add_node("summary_node", generate_summary_node_function)
     workflow.add_node("best_practices_node", search_best_practices_node_function)
     workflow.add_node("testcase_node", generate_testcases_node_function)
+    workflow.add_node("deduplication_node", deduplication_node_function)
 
     workflow.set_entry_point("summary_node")
+
     workflow.add_edge("summary_node", "best_practices_node")
     workflow.add_edge("best_practices_node", "testcase_node")
-    workflow.add_edge("testcase_node", END)
+    workflow.add_edge("testcase_node", "deduplication_node")
+    workflow.add_edge("deduplication_node", END)
 
     return workflow
 
