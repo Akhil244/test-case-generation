@@ -2,7 +2,12 @@ streamlit
 typing_extensions
 langgraph
 pypdf
- langchain_groq
+langchain_groq
+langchain_core
 tavily-python
- groq langchain_core
+groq
 python-dotenv
+scikit-learn
+python-docx
+Pillow
+pytesseract

@@ -136,10 +136,10 @@ if generate_button and feature_input:
         inputs = {
             "user_request": f"Generate {selected_format} test cases for {feature_input}",
             "requirements_docs_content": requirements_docs_content,
-            "include_edge_cases": st.session_state.include_edge_cases,
-            "enhancement_level": st.session_state.enhancement_level,
-            "use_industry_standards": st.session_state.use_industry_standards,
-            "test_format": selected_format
+            "requirements_docs_summary": "",
+            "industry_best_practices": "",
+            "test_format": selected_format,
+            "answer": ""
         }
 
         final_output = ""

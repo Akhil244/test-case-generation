@@ -1,10 +1,10 @@
 import re
-from typing import List, Dict
+from typing import List, Dict, TypedDict
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-def deduplication_node_function(state: dict) -> dict:
+def deduplication_node_function(state: TypedDict) -> TypedDict:
     """
     Removes highly similar test cases using TF-IDF cosine similarity.
     Works for Gherkin and Selenium.
